@@ -14,7 +14,7 @@
 
         public string InfoTra()
         {
-            return (InfoPer() + "Salario: " + salario + "Horario: " + horario);
+            return (InfoPer() + ", Salario:  " + salario + ", Horario:  " + horario);
         }
     }
 }

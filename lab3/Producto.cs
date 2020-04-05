@@ -20,7 +20,7 @@ namespace lab3
         }
         public string Informacion()
         {
-            return ("Nombre:" + nombre + ", Marca:" + marca + ", Precio:" + precio + ", Stock:" + stock + "\n");
+            return ("Nombre: " + nombre + ",  Marca: " + marca + ",  Precio: " + precio + ",  Stock: " + stock );
         }
     }
 }

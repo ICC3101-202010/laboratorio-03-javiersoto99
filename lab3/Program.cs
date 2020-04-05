@@ -11,6 +11,9 @@ namespace lab3
             
             Console.WriteLine("Bienvenido al Software para el control del Supermercado");
             int cargo = 0;
+            List<string> listasupervisores = new List<string>();
+            List<string> listacajeros = new List<string>();
+            List<string> listaauxiliares = new List<string>();
             List<string> listaproductos = new List<string>();
             while (cargo != 5)
             {
@@ -103,8 +106,9 @@ namespace lab3
                                         Console.WriteLine("Horario : ejemplo (8:00 - 15:00)");
                                         string horarioTrabajador = Console.ReadLine();
 
+                                        var persona = new Persona(nombreTrabajador, apellidoTrabajador, rutTrabajador, nacionTrabajador, fdnTrabajador);
                                         var trabajador = new Trabajador(nombreTrabajador, apellidoTrabajador, rutTrabajador, nacionTrabajador, fdnTrabajador, salarioTrabajador, horarioTrabajador);
-
+                                        
                                         int contra = 0;
                                         Console.WriteLine("Que tipo de Cargo tiene: ");
                                         Console.WriteLine("1. Supervisor");
@@ -113,9 +117,60 @@ namespace lab3
                                         contra = Convert.ToInt32(Console.ReadLine());
                                         if (contra == 1 || contra == 2 || contra == 3)
                                         {
+                                            if(contra == 1)
+                                            {
+                                                Console.WriteLine("Ingrese sector de Supervision: ");
+                                                string sectorTrabajador = Console.ReadLine();
+                                                var supervisorContratado = new Supervisor(nombreTrabajador, apellidoTrabajador, rutTrabajador, nacionTrabajador, fdnTrabajador, salarioTrabajador, horarioTrabajador, sectorTrabajador);
+                                                
+                                                listasupervisores.Add(supervisorContratado.InfoSV());
 
+                                            }
+                                            else if(contra == 2)
+                                            {
+                                                Console.WriteLine("Ingrese numero de Cajero donde va a trabajar: ");
+                                                int cajaTrabajador = Convert.ToInt32(Console.ReadLine());
+                                                var cajeroContratado = new Cajero(nombreTrabajador, apellidoTrabajador, rutTrabajador, nacionTrabajador, fdnTrabajador, salarioTrabajador, horarioTrabajador, cajaTrabajador);
+                                                
+                                                listacajeros.Add(cajeroContratado.InfoCaj());
+                                            }
+                                            else if(contra == 3)
+                                            {
+                                                Console.WriteLine("Ingrese numero de Pasillo donde va a trabajar: ");
+                                                int pasilloTrabajador = Convert.ToInt32(Console.ReadLine());
+                                                var auxContratado = new Auxiliar(nombreTrabajador, apellidoTrabajador, rutTrabajador, nacionTrabajador, fdnTrabajador, salarioTrabajador, horarioTrabajador, pasilloTrabajador);
+
+                                                listaauxiliares.Add(auxContratado.InfoAux());
+                                            }
                                         }
+                                        
 
+                                    }
+                                    else if(ajefe == 2)
+                                    {
+                                        Console.WriteLine(listasupervisores.Count + " Supervisores: ");
+                                        foreach(string i in listasupervisores)
+                                        {
+                                            Console.WriteLine(i);
+                                        }
+                                        Console.WriteLine(listacajeros.Count + " Cajeros: ");
+                                        foreach (string i in listacajeros)
+                                        {
+                                            Console.WriteLine(i);
+                                        }
+                                        Console.WriteLine(listaauxiliares.Count + " Auxiliares: ");
+                                        foreach (string i in listaauxiliares)
+                                        {
+                                            Console.WriteLine(i);
+                                        }
+                                    }
+                                    else if(ajefe == 3)
+                                    {
+                                        Console.WriteLine("No tenemos esa funcion todavia");
+                                    }
+                                    else if (ajefe == 4)
+                                    {
+                                        Console.WriteLine("No tenemos esa funcion todavia");
                                     }
                                 }
                                 else
@@ -296,5 +351,6 @@ namespace lab3
             Console.WriteLine("Cerrando Software...");
 
         }
+
     }
 }
