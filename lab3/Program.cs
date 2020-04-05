@@ -11,6 +11,7 @@ namespace lab3
             
             Console.WriteLine("Bienvenido al Software para el control del Supermercado");
             int cargo = 0;
+            List<int> listacodigos = new List<int>();
             List<string> listasupervisores = new List<string>();
             List<string> listacajeros = new List<string>();
             List<string> listaauxiliares = new List<string>();
@@ -35,10 +36,10 @@ namespace lab3
                         Console.WriteLine("1.- Agregar Producto");
                         Console.WriteLine("2.- Ver Productos");
                         Console.WriteLine("3.- Ajustes Personal de Trabajo");
-                        Console.WriteLine("4.- Realizar Compra");
+                      
 
                         funcionjefe = Convert.ToInt32(Console.ReadLine());
-                        if (funcionjefe == 1 || funcionjefe == 2 || funcionjefe == 3 || funcionjefe == 4)
+                        if (funcionjefe == 1 || funcionjefe == 2 || funcionjefe == 3 )
                         {
                             if (funcionjefe == 1)
                             {
@@ -53,10 +54,17 @@ namespace lab3
                                 Console.WriteLine("Ingrese el Precio del producto: ");
                                 int precioProducto = Convert.ToInt32(Console.ReadLine());
 
-                                Console.WriteLine("Ingrese el Stock del producto");
+                                Console.WriteLine("Ingrese el Stock del producto: ");
                                 int stockProducto = Convert.ToInt32(Console.ReadLine());
 
-                                var producto = new Producto(nombreProducto, marcaProducto, precioProducto, stockProducto);
+                                Console.WriteLine("Ingrese codigo del producto (en numeros(ej. 199)): ");
+
+                                int codigoProducto = Convert.ToInt32(Console.ReadLine());
+
+                                listacodigos.Add(codigoProducto);
+                                
+
+                                var producto = new Producto(nombreProducto, marcaProducto, precioProducto, stockProducto, codigoProducto);
                                 listaproductos.Add(producto.Informacion());
 
                             }
@@ -178,6 +186,7 @@ namespace lab3
                                     Console.WriteLine("Ajuste invalido");
                                 }
                             }
+                            
 
                         }
                         else
@@ -197,7 +206,7 @@ namespace lab3
                         Console.WriteLine("");
                         Console.WriteLine("1.- Agregar Producto");
                         Console.WriteLine("2.- Ver Productos");
-                        Console.WriteLine("3.- Realizar Compra");
+                        Console.WriteLine("3.- Realizar Venta");
 
                         funcionsv = Convert.ToInt32(Console.ReadLine());
                         if (funcionsv == 1 || funcionsv == 2 || funcionsv == 3)
@@ -217,7 +226,14 @@ namespace lab3
                                 Console.WriteLine("Ingrese el Stock del producto");
                                 int stockProducto = Convert.ToInt32(Console.ReadLine());
 
-                                var producto = new Producto(nombreProducto, marcaProducto, precioProducto, stockProducto);
+                                Console.WriteLine("Ingrese codigo del producto (en numeros(ej. 199)): ");
+
+                                int codigoProducto = Convert.ToInt32(Console.ReadLine());
+
+                                listacodigos.Add(codigoProducto);
+
+
+                                var producto = new Producto(nombreProducto, marcaProducto, precioProducto, stockProducto, codigoProducto);
                                 
                                 listaproductos.Add(producto.Informacion());
 
@@ -241,7 +257,31 @@ namespace lab3
                             }
                             else if(funcionsv == 3)
                             {
+                                Console.WriteLine("Ingrese hora actual: ");
+                                string hora = Console.ReadLine();
+                                Console.WriteLine("Ingrese datos del cliente: ");
+                                Console.WriteLine("Nombre: ");
+                                string nombreCliente = Console.ReadLine();
+                                Console.WriteLine("Apellido: ");
+                                string apellidoCliente = Console.ReadLine();
+                                Console.WriteLine("RUT: ");
+                                int rutCliente = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine("Nacionalidad: ");
+                                string nacionCliente = Console.ReadLine();
+                                Console.WriteLine("Fecha de Nacimiento (xx/xx/xx): ");
+                                string fdnCliente = Console.ReadLine();
 
+                                var cliente = new Persona(nombreCliente, apellidoCliente, rutCliente, nacionCliente, fdnCliente);
+
+                                Console.WriteLine("Para Scanear codigo del Producto aprente ENTER");
+                                string enter = Console.ReadLine();
+                                int randomInt = new Random().Next(0, listacodigos.Count);
+                                Console.WriteLine(randomInt);
+                                Console.WriteLine(listacodigos.Count);
+                                Console.WriteLine("El cliente esta comprando: ");
+                                Console.WriteLine(listaproductos[randomInt]);
+                                Console.WriteLine("ENTER para finalizar venta");
+                                string enter2 = Console.ReadLine();
                             }
 
 
@@ -262,7 +302,7 @@ namespace lab3
                         int funcioncaj = 0;
                         Console.WriteLine("Hola Cajero. Elija una funcion: ");
                         Console.WriteLine("");
-                        Console.WriteLine("1.- Realizar Compra");
+                        Console.WriteLine("1.- Realizar Venta");
                         Console.WriteLine("2.- Ver Productos");
 
                         funcioncaj = Convert.ToInt32(Console.ReadLine());
@@ -270,7 +310,32 @@ namespace lab3
                         {
                             if (funcioncaj == 1)
                             {
+                                Console.WriteLine("Ingrese hora actual: ");
+                                string hora = Console.ReadLine();
+                                Console.WriteLine("Ingrese datos del cliente: ");
+                                Console.WriteLine("Nombre: ");
+                                string nombreCliente = Console.ReadLine();
+                                Console.WriteLine("Apellido: ");
+                                string apellidoCliente = Console.ReadLine();
+                                Console.WriteLine("RUT: ");
+                                int rutCliente = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine("Nacionalidad: ");
+                                string nacionCliente = Console.ReadLine();
+                                Console.WriteLine("Fecha de Nacimiento (xx/xx/xx): ");
+                                string fdnCliente = Console.ReadLine();
 
+                                var cliente = new Persona(nombreCliente, apellidoCliente, rutCliente, nacionCliente, fdnCliente);
+
+                                Console.WriteLine("Para Scanear codigo del Producto aprente ENTER");
+                                string enter = Console.ReadLine();
+                                int randomInt = new Random().Next(0, listacodigos.Count);
+                                Console.WriteLine(randomInt);
+                                Console.WriteLine(listacodigos.Count);
+                                Console.WriteLine("El cliente esta comprando: ");
+                                Console.WriteLine(listaproductos[randomInt]);
+                                Console.WriteLine("ENTER para finalizar venta");
+                                string enter2 = Console.ReadLine();
+                                
 
                             }
                             else if (funcioncaj == 2)
