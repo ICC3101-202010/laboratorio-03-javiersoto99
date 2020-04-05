@@ -1,20 +1,21 @@
 ﻿<Properties StartupConfiguration="{625F7D89-1435-48C7-820C-13E4360B9C62}|Default">
   <MonoDevelop.Ide.ItemProperties.lab3 PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Trabajador.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Auxiliar.cs">
     <Files>
-      <File FileName="Program.cs" Line="256" Column="1" />
-      <File FileName="Persona.cs" Line="8" Column="31" />
+      <File FileName="Program.cs" Line="119" Column="38" />
       <File FileName="Producto.cs" Line="9" Column="27" />
-      <File FileName="Trabajador.cs" Line="3" Column="14" />
-      <File FileName="Jefe.cs" Line="5" Column="1" />
-      <File FileName="Supervisor.cs" Line="1" Column="1" />
+      <File FileName="Persona.cs" Line="27" Column="1" />
+      <File FileName="Trabajador.cs" Line="3" Column="1" />
+      <File FileName="Supervisor.cs" Line="17" Column="12" />
+      <File FileName="Cajero.cs" Line="9" Column="10" />
+      <File FileName="Auxiliar.cs" Line="5" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="lab3" expanded="True">
             <Node name="lab3" expanded="True">
-              <Node name="Trabajador.cs" selected="True" />
+              <Node name="Auxiliar.cs" selected="True" />
             </Node>
           </Node>
         </State>
