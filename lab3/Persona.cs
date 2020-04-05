@@ -17,5 +17,10 @@
             this.fdn = fdn;
         }
 
+        public string InfoPer()
+        {
+            return ("Nombre: " + nombre + "Apellido: " + apellido + "RUT: " + rut + "Nacionalidad: " + nacion + "Fecha de Nacimiento: " + fdn);
+        }
+
     }
 }

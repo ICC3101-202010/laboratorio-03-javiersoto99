@@ -1,5 +1,6 @@
 ﻿namespace lab3
 {
+
     public class Trabajador : Persona
     {
         private int salario;
@@ -9,6 +10,11 @@
             this.salario = salario;
             this.horario = horario;
              
+        }
+
+        public string InfoTra()
+        {
+            return (InfoPer() + "Salario: " + salario + "Horario: " + horario);
         }
     }
 }
