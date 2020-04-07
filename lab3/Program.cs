@@ -16,6 +16,9 @@ namespace lab3
             List<string> listacajeros = new List<string>();
             List<string> listaauxiliares = new List<string>();
             List<string> listaproductos = new List<string>();
+            List<int> listacajas = new List<int>();
+            List<string> listaventas = new List<string>();
+            
             while (cargo != 5)
             {
                 Console.WriteLine("Cual es su Puesto de Trabajo: ");
@@ -36,10 +39,11 @@ namespace lab3
                         Console.WriteLine("1.- Agregar Producto");
                         Console.WriteLine("2.- Ver Productos");
                         Console.WriteLine("3.- Ajustes Personal de Trabajo");
+                        Console.WriteLine("4.- Ver Ventas del Supermercado");
                       
 
                         funcionjefe = Convert.ToInt32(Console.ReadLine());
-                        if (funcionjefe == 1 || funcionjefe == 2 || funcionjefe == 3 )
+                        if (funcionjefe == 1 || funcionjefe == 2 || funcionjefe == 3 || funcionjefe ==4 )
                         {
                             if (funcionjefe == 1)
                             {
@@ -186,6 +190,22 @@ namespace lab3
                                     Console.WriteLine("Ajuste invalido");
                                 }
                             }
+                            else if(funcionjefe == 4)
+                            {
+                                if(listaventas.Count == 0)
+                                {
+                                    Console.WriteLine("No hay ventas por el momento");
+                                }
+                                else
+                                {
+                                    for (int i = 0; i < listaventas.Count; i++)
+                                    {
+                                        Console.WriteLine(listaventas[i]);
+
+                                    }
+                                }
+                               
+                            }
                             
 
                         }
@@ -207,9 +227,10 @@ namespace lab3
                         Console.WriteLine("1.- Agregar Producto");
                         Console.WriteLine("2.- Ver Productos");
                         Console.WriteLine("3.- Realizar Venta");
+                        Console.WriteLine("4.- Ver ventas del Supermercado");
 
                         funcionsv = Convert.ToInt32(Console.ReadLine());
-                        if (funcionsv == 1 || funcionsv == 2 || funcionsv == 3)
+                        if (funcionsv == 1 || funcionsv == 2 || funcionsv == 3 || funcionsv == 4)
                         {
                             if (funcionsv == 1)
                             {
@@ -258,6 +279,15 @@ namespace lab3
                             else if(funcionsv == 3)
                             {
                                 Console.WriteLine("Ingrese hora actual: ");
+                                Console.WriteLine("Ingrese hora actual: ");
+                                Console.WriteLine("De que caja esta operando...");
+                                
+                                foreach (int i in listacajas)
+                                {
+                                    Console.WriteLine("Caja " + listacajas[i]);
+                                }
+                                Console.WriteLine("Numero de Caja: ");
+                                int numeroCaja = Convert.ToInt32(Console.ReadLine());
                                 string hora = Console.ReadLine();
                                 Console.WriteLine("Ingrese datos del cliente: ");
                                 Console.WriteLine("Nombre: ");
@@ -276,12 +306,29 @@ namespace lab3
                                 Console.WriteLine("Para Scanear codigo del Producto aprente ENTER");
                                 string enter = Console.ReadLine();
                                 int randomInt = new Random().Next(0, listacodigos.Count);
-                                Console.WriteLine(randomInt);
-                                Console.WriteLine(listacodigos.Count);
+                              
                                 Console.WriteLine("El cliente esta comprando: ");
                                 Console.WriteLine(listaproductos[randomInt]);
                                 Console.WriteLine("ENTER para finalizar venta");
                                 string enter2 = Console.ReadLine();
+                                listaventas.Add("CAJA: " + numeroCaja);
+                                listaventas.Add("CLIENTE: " + cliente.InfoPer());
+                                listaventas.Add("PRODUCTO: " + listaproductos[randomInt]);
+                            }
+                            else if (funcionsv == 4)
+                            {
+                                if (listaventas.Count == 0)
+                                {
+                                    Console.WriteLine("No hay ventas por el momento");
+                                }
+                                else
+                                {
+                                    for (int i = 0; i < listaventas.Count; i++)
+                                    {
+                                        Console.WriteLine(listaventas[i]);
+
+                                    }
+                                }
                             }
 
 
@@ -310,7 +357,15 @@ namespace lab3
                         {
                             if (funcioncaj == 1)
                             {
+
                                 Console.WriteLine("Ingrese hora actual: ");
+                                Console.WriteLine("De que caja esta operando...");
+                                foreach(int i in listacajas)
+                                {
+                                    Console.WriteLine("Caja " + listacajas[i]);
+                                }
+                                Console.WriteLine("Numero de Caja: ");
+                                int numeroCaja = Convert.ToInt32(Console.ReadLine());
                                 string hora = Console.ReadLine();
                                 Console.WriteLine("Ingrese datos del cliente: ");
                                 Console.WriteLine("Nombre: ");
@@ -329,13 +384,16 @@ namespace lab3
                                 Console.WriteLine("Para Scanear codigo del Producto aprente ENTER");
                                 string enter = Console.ReadLine();
                                 int randomInt = new Random().Next(0, listacodigos.Count);
-                                Console.WriteLine(randomInt);
-                                Console.WriteLine(listacodigos.Count);
+                                
                                 Console.WriteLine("El cliente esta comprando: ");
                                 Console.WriteLine(listaproductos[randomInt]);
+                                 
                                 Console.WriteLine("ENTER para finalizar venta");
                                 string enter2 = Console.ReadLine();
-                                
+                                listaventas.Add("CAJA: " + numeroCaja);
+                                listaventas.Add("CLIENTE: " + cliente.InfoPer());
+                                listaventas.Add("PRODUCTO: " + listaproductos[randomInt]);
+
 
                             }
                             else if (funcioncaj == 2)
